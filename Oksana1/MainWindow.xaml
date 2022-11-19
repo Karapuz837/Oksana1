@@ -1,0 +1,42 @@
+﻿<Window x:Class="Oksana1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Oksana1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+      <TextBox x:Name="SearchField" Width=" 300" Margin=" 20" FontSize="20" SelectionChanged="SearchField_SelectionChanged"></TextBox>
+
+            <ComboBox x:Name="Sortfield" Width=" 300" Margin=" 20" FontSize="25" SelectionChanged="SortFiled_SelectionChanged">
+                <ComboBoxItem>/По умолчанию"</ComboBoxItem>
+                <ComboBoxItem>/По возрастанию"</ComboBoxItem>
+                <ComboBoxItem>/По убыванию"</ComboBoxItem>
+            </ComboBox>
+
+        </StackPanel>
+        <ListView Grid.Row="2" x:Name="ToyList">
+            <ListView.ItemTemplate>
+            <DataTemplate>
+                <Border BorderBrush="Black" Height="25" >
+                    <StackPanel Orientation="Horizontal" Background="Aqua">
+                    <TextBlock Text="{Binding Name}" Width="100" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Description}" Height="25" Width="500" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Weight}" Width="100" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Height}" Width="100" TextWrapping="Wrap"/>
+                        <TextBlock Text="{Binding Width}" Width="100" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Cost}" Width="100" TextWrapping="Wrap"/>
+                        </StackPanel>
+                   </Border>
+            </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
